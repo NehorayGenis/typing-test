@@ -1,0 +1,36 @@
+.container {
+    max-width: $normal-breakpoint;
+    margin-top: 5em;
+    padding: 20px;
+    margin: 3em auto;
+    width: 90%;
+    @include for-mobile-layout {
+        max-width: initial;
+    }
+
+    @include for-tablet-layout {
+        max-width: $mobile-breakpoint;
+    }
+
+    @include for-normal-layout {
+        max-width: $tablet-breakpoint;
+    }
+
+    @include for-wide-layout {
+        max-width: $normal-breakpoint;
+    }
+}
+
+// GRIDS
+.simple-cards-grid {
+    display: flex;
+    flex-direction: column;
+}
+
+
+footer{
+    padding: 10px;
+    >*{
+        margin: auto;
+    }
+}

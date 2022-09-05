@@ -1,0 +1,17 @@
+.profile-main {
+    >*{
+        color: $clr6;
+    }
+    .profile-app {
+        margin: 100px auto;
+        width: fit-content;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid black;
+        border-radius: 5px;
+        h1 {
+            font-weight: 700;
+        }
+    }
+}

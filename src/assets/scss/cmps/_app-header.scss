@@ -1,0 +1,25 @@
+.app-header {
+    background-color: $clr4;
+    z-index: 1;
+    position: fixed;
+    width: 100%;
+    .logo{
+        padding: 0px 20px;
+        font-size: 26px;
+    }
+    a{
+        padding: 0px 20px;
+        font-weight: 500;
+    }
+    .link-to{
+        padding: 0px 20px;
+        font-weight: 500;
+    }
+
+}
+
+@media (max-width: $mobile-breakpoint) {
+    .pfp-details{
+        display: none;
+    }
+}

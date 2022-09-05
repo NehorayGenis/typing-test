@@ -1,0 +1,37 @@
+.login-page-bottons {
+    border: 1px solid $clr1;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin: 10px 0px 0px 0px;
+    color: $clr6;
+    &:hover {
+        text-decoration: none;
+        color: rgb(0, 183, 255);
+    }
+}
+.signup{
+    background-color: rgb(9, 157, 36);
+}
+.login-form{
+    >*{
+        color: $clr6;
+
+    }
+    .login-inputs {
+        display: block;
+        height: 50px;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.07);
+        border-radius: 3px;
+        padding: 0 10px;
+        margin-top: 8px;
+        font-size: 14px;
+        font-weight: 300;
+        border: 1px solid $clr1;
+        color: $clr6;
+        
+    }
+    ::placeholder {
+        color: $clr6;
+    }    
+}

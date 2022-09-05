@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/NehorayGenis/react-bots/static/css/main.15858502.css",
+    "main.js": "/NehorayGenis/react-bots/static/js/main.e22a6e0d.js",
+    "static/js/787.451c4e8c.chunk.js": "/NehorayGenis/react-bots/static/js/787.451c4e8c.chunk.js",
+    "index.html": "/NehorayGenis/react-bots/index.html",
+    "main.15858502.css.map": "/NehorayGenis/react-bots/static/css/main.15858502.css.map",
+    "main.e22a6e0d.js.map": "/NehorayGenis/react-bots/static/js/main.e22a6e0d.js.map",
+    "787.451c4e8c.chunk.js.map": "/NehorayGenis/react-bots/static/js/787.451c4e8c.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.15858502.css",
+    "static/js/main.e22a6e0d.js"
+  ]
+}
