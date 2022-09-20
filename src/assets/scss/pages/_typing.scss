@@ -1,0 +1,15 @@
+.typing-section {
+    width: 50vw;
+    height: 50vh;
+    background-color: yellow;
+    .rows{
+        margin: 10px 0;
+        .keyboard-btn{
+            padding: 5px 15px;
+            background-color: green;
+        }
+        .clicked-btn{
+            background-color: red;
+        }
+    }
+}

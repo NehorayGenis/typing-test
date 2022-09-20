@@ -7,8 +7,8 @@ export function AppHeader(props) {
     return (
         <header className="app-header">
             <section className="flex space-between align-center">
-                <NavLink to="/contacts" className="logo">
-                    Contacts
+                <NavLink to="/typing" className="logo">
+                    typing time
                 </NavLink>
                 {(() => {
                     if (Object.keys(loggedInUser).length !== 0) {
@@ -29,14 +29,6 @@ export function AppHeader(props) {
                         )
                     }
                 })()}
-                {/* <div className="back-btn" onClick={() => Navigate(-1)}>
-                    <div class="backBtn ">
-                        <span class="line tLine"></span>
-                        <span class="line mLine"></span>
-                        <span class="label">Back</span>
-                        <span class="line bLine"></span>
-                    </div>
-                </div> */}
                 <nav>
                     <NavLink className="link-to" to="/home">
                         Home

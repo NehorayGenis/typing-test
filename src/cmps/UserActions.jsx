@@ -1,23 +1,18 @@
 import { useSelector, useDispatch } from "react-redux"
 import { useEffect } from "react"
-import { loadActions } from "../store/actions/actionActions"
 
 export function UserActions(props) {
-    const { actions } = useSelector((state) => state.actionModule)
     const dispatch = useDispatch()
     const { loggedInUser } = useSelector((state) => state.userModule)
-    useEffect(() => {
-        dispatch(loadActions())
-    }, [])
 
-    if (!actions) return "no actions yet"
+    if (Object.keys(loggedInUser.moves).length === 0) return "no actions yet"
     return (
         <header className="app-header">
             {(() => {
-                if (Object.keys(loggedInUser).length !== 0) {
+                if (Object.keys(loggedInUser.moves).length !== 0) {
                     return (
                         <div className="contact-list flex column">
-                            {actions.map((action) => (
+                            {loggedInUser.moves.map((action) => (
                                 <section>
                                     <p>Name: {action.amount}</p>
                                     <p>Name: {action.at}</p>

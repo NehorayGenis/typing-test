@@ -1,13 +1,11 @@
-import { HashRouter as Router, Navigate, Redirect, Route, Routes, Switch } from "react-router-dom"
+import { HashRouter as Router, Navigate, Route, Routes } from "react-router-dom"
 
 import "./assets/scss/global.scss"
-import { ContactApp } from "./pages/ContactApp"
 import { AppHeader } from "./cmps/AppHeader"
 import { About } from "./pages/About"
-import { ContactDetails } from "./pages/ContactDetails"
-import { ContactEdit } from "./pages/ContactEdit"
 import { Profile } from "./pages/profile"
 import { Statistics } from "./pages/statistics"
+import { TypingTest } from "./pages/typingTest"
 import { LoginSignup } from "./pages/login-signup"
 import { userService } from "./services/userService"
 import { Home } from "./pages/Home"
@@ -41,7 +39,7 @@ const PrivateRoute = ({ children }) => {
     return children
 }
 
-function App() {
+export default function App() {
     return (
         <Router>
             <div className="main-app">
@@ -51,14 +49,7 @@ function App() {
                     <Routes>
                         <Route path="/" element={<LoginSignup />} />
                         <Route path="/home" element={<Home />} />
-                        <Route
-                            path="/contacts"
-                            element={
-                                <PrivateRoute>
-                                    <ContactApp />
-                                </PrivateRoute>
-                            }
-                        />
+                        <Route path="/typing" element={<TypingTest />} />
                         <Route
                             path="/profile"
                             element={
@@ -67,9 +58,6 @@ function App() {
                                 </PrivateRoute>
                             }
                         />
-                        <Route path="/contact/edit/:id" element={<ContactEdit />} />
-                        <Route path="/contact/edit/" element={<ContactEdit />} />
-                        <Route path="/contact/:id" element={<ContactDetails />} />
                         <Route path="/statistics" element={<Statistics />} />
                         <Route path="/about" element={<About />}>
                             <Route path="team" element={<Team />} />
@@ -85,4 +73,4 @@ function App() {
     )
 }
 
-export default App
+// export default App

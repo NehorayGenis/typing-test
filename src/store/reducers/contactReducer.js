@@ -1,6 +1,6 @@
 import { userService } from "../../services/userService";
 const INITIAL_STATE = {
-    contacts: userService.getUsersDb(),
+    contacts: null,
     filterBy: null
 }
 

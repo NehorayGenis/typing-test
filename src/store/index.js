@@ -3,14 +3,14 @@ import { applyMiddleware, combineReducers, compose, legacy_createStore as create
 import thunk from 'redux-thunk'
 import { contactReducer } from './reducers/contactReducer'
 import { userReducer } from './reducers/userReducer'
-import { actionReducer } from './reducers/actionReducer'
+import { wordReducer } from './reducers/wordReducer'
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
 const rootReducer = combineReducers({
     contactModule: contactReducer,
     userModule: userReducer,
-    actionModule: actionReducer,
+    wordModule: wordReducer,
 })
 
 export const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)))
