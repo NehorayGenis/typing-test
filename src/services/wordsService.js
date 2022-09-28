@@ -27,7 +27,8 @@ function sort(arr) {
 function getWords() {
     return new Promise((resolve, reject) => {
         // var actionsToReturn = actions;
-        const words=randomWords(15)
+        const wordsBeforeChange=randomWords(15)
+        const words=wordsBeforeChange.map((word)=>word.split(''))
         resolve(words)
     })
 }

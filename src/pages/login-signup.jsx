@@ -4,7 +4,6 @@ import { useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom"
 import { storageService } from "../services/storageService"
 import { userService } from "../services/userService"
-import { loadContacts } from "../store/actions/contactActions"
 import { LoginUser, signUpUser } from "../store/actions/userActions"
 
 export function LoginSignup(props) {
@@ -26,7 +25,6 @@ export function LoginSignup(props) {
     }
 
     useEffect(() => {
-        dispatch(loadContacts())
         convertToBitcoin()
         var elinputs = document.querySelectorAll("input")
         elinputs.forEach((elinput) => {

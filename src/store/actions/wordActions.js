@@ -5,7 +5,6 @@ export function loadWords() {
     return async (dispatch, getState) => {
         try {
             const words = await wordService.getWords()
-            console.log(words);
             dispatch({ type: 'SET_WORDS', words })
         } catch (err) {
             console.log('err:', err)

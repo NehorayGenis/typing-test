@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useEffectUpdate } from "../customHooks/useEffectUpdate";
+// import { useEffectUpdate } from "../customHooks/useEffectUpdate";
 
 export const Counter = () => {
 
@@ -14,12 +14,12 @@ export const Counter = () => {
     //     }
     // }, [count])
 
-    useEffectUpdate(() => {
-        document.title = count
-        return ()=>{
-            // happens after count changes (every count effect)
-        }
-    }, [count])
+    // useEffectUpdate(() => {
+    //     document.title = count
+    //     return ()=>{
+    //         // happens after count changes (every count effect)
+    //     }
+    // }, [count])
 
 
     const increment = () => {

@@ -1,14 +1,16 @@
-import { useEffect } from "react"
 import { WordsDisplay } from "../cmps/WordsToType"
-
+import { useEffect, useState } from "react"
 export const TypingTest = () => {
+    const [clickCounter, setClickCounter] = useState(1)
+    
     useEffect(() => {
+        console.log('loaded typing');
         const typingSection = document.querySelector(".typing-section")
         const allKeyboardBtns = document.querySelectorAll(".keyboard-btn")
         allKeyboardBtns.forEach((btn) => {
             btn.classList.add(`btn-${btn.innerText}`)
         })
-        typingSection.addEventListener("keydown", keyPressed, true)
+        typingSection.addEventListener("keypress", keyPressed, true)
         typingSection.addEventListener("keyup", keyReleased, true)
         typingSection.addEventListener("focusout", outOfFocus, true)
         typingSection.addEventListener("focusin", inFocus, true)
@@ -16,31 +18,38 @@ export const TypingTest = () => {
         typingSection.focus()
 
         return () => document.removeEventListener("keydown", keyPressed)
-    }, [])
+    })
 
     const keyPressed = (e) => {
         e.preventDefault()
-        if (e.key===" ") {
+        // console.log(clickCounter +1);
+        const temp=clickCounter+1
+        setClickCounter(temp)
+        let singleChrEl=document.querySelector(`.chr-num-${clickCounter +1}`)
+        // console.log(singleChrEl.innerText)
+        if (e.key === " ") {
             const pressedBtn = document.querySelector(`.btn-SPACE`)
             pressedBtn.classList.add(`clicked-btn`)
             const checkSection = document.querySelector(`.input-section`)
-            checkSection.innerText+="_"
+            checkSection.innerText += "_"
             return
         }
         const pressedBtn = document.querySelector(`.btn-${e.key.toUpperCase()}`)
         pressedBtn.classList.add(`clicked-btn`)
         const checkSection = document.querySelector(`.input-section`)
-        checkSection.innerText+=e.key.toUpperCase()
+        checkSection.innerText += e.key.toUpperCase()
+        return
     }
     const keyReleased = (e) => {
-        e.preventDefault()
-        if (e.key===" ") {
+        e.preventDefault()       
+        if (e.key === " ") {
             const pressedBtn = document.querySelector(`.btn-SPACE`)
             pressedBtn.classList.remove(`clicked-btn`)
             return
         }
         const pressedBtn = document.querySelector(`.btn-${e.key.toUpperCase()}`)
         pressedBtn.classList.remove(`clicked-btn`)
+        return
     }
 
     const outOfFocus = () => {
@@ -53,8 +62,7 @@ export const TypingTest = () => {
     return (
         <div className="contact-details flex column">
             <WordsDisplay></WordsDisplay>
-            <section className="input-section">
-            </section>
+            <section className="input-section"></section>
             <section className="flex column align-center typing-section">
                 <div className="number-row rows">
                     <a className="keyboard-btn">`</a>
