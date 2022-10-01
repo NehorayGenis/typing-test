@@ -1,8 +1,8 @@
 import { WordsDisplay } from "../cmps/WordsToType"
 import { useEffect, useState } from "react"
 export const TypingTest = () => {
-    const [clickCounter, setClickCounter] = useState(1)
-    
+    const [clickCounter, setClickCounter] = useState(1);
+    const [initialRender, setInitalRender] = useState(true);
     useEffect(() => {
         console.log('loaded typing');
         const typingSection = document.querySelector(".typing-section")
@@ -10,19 +10,25 @@ export const TypingTest = () => {
         allKeyboardBtns.forEach((btn) => {
             btn.classList.add(`btn-${btn.innerText}`)
         })
-        typingSection.addEventListener("keypress", keyPressed, true)
-        typingSection.addEventListener("keyup", keyReleased, true)
-        typingSection.addEventListener("focusout", outOfFocus, true)
-        typingSection.addEventListener("focusin", inFocus, true)
-        typingSection.contentEditable = true
-        typingSection.focus()
+        if (initialRender) {
+            typingSection.addEventListener("keypress", keyPressed)
+            typingSection.addEventListener("keyup", keyReleased)
+            typingSection.addEventListener("focusout", outOfFocus)
+            typingSection.addEventListener("focusin", inFocus)
+            typingSection.contentEditable = true
+            typingSection.focus()
+        }
+        setInitalRender(false)
 
-        return () => document.removeEventListener("keydown", keyPressed)
+        return () => {
+            document.removeEventListener("keypress", keyPressed)
+            
+        }
     })
 
     const keyPressed = (e) => {
         e.preventDefault()
-        // console.log(clickCounter +1);
+        console.log(e.key);
         const temp=clickCounter+1
         setClickCounter(temp)
         let singleChrEl=document.querySelector(`.chr-num-${clickCounter +1}`)
