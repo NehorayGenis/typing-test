@@ -14,18 +14,16 @@
 @import "basics/animations";
 
 // Pages
-@import "cmps/contact-list";
-@import "cmps/contact-preview";
-@import "cmps/contact-edit";
 @import "cmps/profile-app";
 @import "pages/login-signup";
 @import "pages/robot-details";
 @import "pages/typing";
 
 // Components
-@import "cmps/contact-filter";
 @import "cmps/app-header";
 @import "cmps/app-home";
+@import "cmps/word-display";
+
 
 // FONTAWESOME
 @import "../fonts/fontawesome-free-6.2.0-web/css/fontawesome.css";

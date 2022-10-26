@@ -1,7 +1,7 @@
 import { WordsDisplay } from "../cmps/WordsToType"
 import { useEffect, useState } from "react"
 export const TypingTest = () => {
-    const [clickCounter, setClickCounter] = useState(1)
+    const [clickCounter, setClickCounter] = useState(2)
     const firstRowBtns = ["`", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "=", "←"]
     const secondRowBtns = ["TAB", "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P", "[", "]"]
     const thirdRowBtns = ["CAPS", "A", "S", "D", "F", "G", "H", "J", "K", "L", ";", '"', "ENTER"]
@@ -11,11 +11,22 @@ export const TypingTest = () => {
         const keyPressed = (e) => {
             e.preventDefault()
             setClickCounter(clickCounter => {
-                console.log(e.key, clickCounter)
-                return clickCounter + 1
+                let singleChrEl = document.querySelector(`.chr-num-${clickCounter}`)
+                if (singleChrEl.innerText.length >1) {
+                    return clickCounter + 1
+                }
+                if (singleChrEl.innerText === e.key) {
+                    if (singleChrEl.classList.contains('incorrect-typing')) {
+                        singleChrEl.classList.remove('incorrect-typing')
+                    }
+                    singleChrEl.classList.add(`correct-typing`)
+                    return clickCounter + 1
+                }else{
+                    singleChrEl.classList.add(`incorrect-typing`)
+                    return clickCounter
+
+                }
             })    
-            let singleChrEl = document.querySelector(`.chr-num-${clickCounter}`)
-            console.log(singleChrEl.innerText, e.key, clickCounter)
             if (e.key === " ") {
                 const pressedBtn = document.querySelector(`.btn-SPACE`)
                 pressedBtn.classList.add(`clicked-btn`)
@@ -23,10 +34,10 @@ export const TypingTest = () => {
                 checkSection.innerText += "_"
                 return
             }
-            const pressedBtn = document.querySelector(`.btn-${e.key.toUpperCase()}`)
+            const pressedBtn = document.querySelector(`.btn-${e.code.slice(-1)}`)
             pressedBtn.classList.add(`clicked-btn`)
             const checkSection = document.querySelector(`.input-section`)
-            checkSection.innerText += e.key.toUpperCase()
+            checkSection.innerText += e.code.slice(-1)
         }
         const keyReleased = (e) => {
             e.preventDefault()
@@ -42,7 +53,7 @@ export const TypingTest = () => {
         const typingSection = document.querySelector(".typing-section")
         const allKeyboardBtns = document.querySelectorAll(".keyboard-btn")
         typingSection.addEventListener("keypress", keyPressed)
-        // typingSection.addEventListener("keyup", keyReleased)
+        typingSection.addEventListener("keyup", keyReleased)
         typingSection.contentEditable = true
         typingSection.focus()
         allKeyboardBtns.forEach((btn) => {

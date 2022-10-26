@@ -1,6 +1,5 @@
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { wordService } from "../services/wordsService"
 import { loadWords } from "../store/actions/wordActions"
 
 export const WordsDisplay = (props) => {
@@ -25,6 +24,7 @@ export const WordsDisplay = (props) => {
                             </span>
                         )
                     })}
+                    _
                 </div>
             )
         }))
@@ -32,8 +32,8 @@ export const WordsDisplay = (props) => {
 
     if (!wordsToDisplay) return <div>Loading...</div>
     return (
-        <form className="">
+        <section className="words-to-type">
             {renderFunction()}
-        </form>
+        </section>
     )
 }
